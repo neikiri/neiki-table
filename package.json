@@ -1,0 +1,40 @@
+{
+  "name": "neiki-table",
+  "version": "1.0.0",
+  "description": "Lightweight, dependency-free CDN-ready data table Web Component with sorting, search, filters, pagination, inline editing, row selection, column resizing, density modes, custom cell formatting, CSV/JSON export/clipboard and i18n support",
+  "keywords": [
+    "table",
+    "data-table",
+    "datagrid",
+    "web-components",
+    "custom-elements",
+    "vanilla-js",
+    "i18n",
+    "csv-export"
+  ],
+  "scripts": {
+    "test": "node --check src/neiki-table.js",
+    "build": "python3 minify.py"
+  },
+  "main": "dist/neiki-table.min.js",
+  "exports": {
+    ".": "./dist/neiki-table.min.js",
+    "./style": "./dist/neiki-table.min.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "style": "dist/neiki-table.min.css",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neikiri/neiki-table.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neikiri/neiki-table/issues"
+  },
+  "unpkg": "dist/neiki-table.min.js",
+  "jsdelivr": "dist/neiki-table.min.js",
+  "homepage": "https://github.com/neikiri/neiki-table#readme",
+  "author": "Jindřich Stoklasa <jindrichstoklasa1@gmail.com>",
+  "license": "MIT"
+}
