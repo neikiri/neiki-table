@@ -1,144 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta name="description" content="Demo of Neiki's Table, a lightweight, customizable data-table Web Component with sorting and responsive themes."><meta name="robots" content="index, follow"><meta property="og:type" content="website"><meta property="og:title" content="Neiki's Table – Data Table Web Component"><meta property="og:description" content="A lightweight, customizable data-table Web Component with sorting and responsive themes."><meta property="og:url" content="https://neikiri.dev/table/"><meta name="twitter:card" content="summary">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neiki's Table — Demo</title>
-<script src="../src/neiki-table.js"></script>
-<style>
-  :root {
-    color-scheme: light dark;
-  }
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    margin: 0;
-    padding: 0 0 80px;
-    background: #f7f7f9;
-    color: #1f2328;
-  }
-  @media (prefers-color-scheme: dark) {
-    body { background: #16181d; color: #f2f3f5; }
-  }
-  header {
-    position: relative;
-    padding: 32px 24px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .header-logo {
-    height: 52px;
-    width: auto;
-  }
-  .header-github {
-    position: absolute;
-    top: 28px;
-    right: 24px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    color: inherit;
-    opacity: 0.75;
-    transition: opacity 0.15s ease;
-  }
-  .header-github:hover,
-  .header-github:focus-visible {
-    opacity: 1;
-  }
-  .header-github svg {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-  }
-  .tagline {
-    text-align: center;
-    margin: 0 0 40px;
-    opacity: 0.75;
-    padding: 0 24px;
-  }
-  main {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  section {
-    margin: 48px 0;
-  }
-  section h2 {
-    font-size: 1.15rem;
-    border-bottom: 1px solid rgba(127,127,127,0.25);
-    padding-bottom: 8px;
-    margin-bottom: 8px;
-  }
-  section p.desc {
-    opacity: 0.75;
-    margin: 0 0 20px;
-    font-size: 0.92rem;
-  }
-  .controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  .controls button, .controls select {
-    font: inherit;
-    padding: 6px 14px;
-    border-radius: 8px;
-    border: 1px solid rgba(127,127,127,0.3);
-    background: transparent;
-    color: inherit;
-    cursor: pointer;
-  }
-  .controls button.active {
-    background: #2563eb;
-    color: #fff;
-    border-color: #2563eb;
-  }
-  pre {
-    background: rgba(127,127,127,0.1);
-    border-radius: 8px;
-    padding: 12px 16px;
-    overflow-x: auto;
-    font-size: 0.85rem;
-  }
-  #log {
-    background: rgba(127,127,127,0.1);
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 0.8rem;
-    max-height: 160px;
-    overflow-y: auto;
-    font-family: ui-monospace, monospace;
-  }
-  @media (max-width: 768px) {
-    .header-logo { height: 38px; }
-    .header-github { position: static; margin-top: 12px; }
-    header { flex-direction: column; gap: 8px; }
-  }
-</style>
+    <meta name="description" content="Demo of Neiki's Table, a lightweight, customizable data-table Web Component with sorting and responsive themes.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Neiki's Table – Data Table Web Component">
+    <meta property="og:description" content="A lightweight, customizable data-table Web Component with sorting and responsive themes.">
+    <meta property="og:url" content="https://neikiri.dev/table/">
+    <meta name="twitter:card" content="summary">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neiki's Table — Demo</title>
+    <script src="../src/neiki-table.js"></script>
+    <style>
+        :root {
+            color-scheme: light dark;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0 0 80px;
+            background: #f7f7f9;
+            color: #1f2328;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #16181d;
+                color: #f2f3f5;
+            }
+        }
+
+        header {
+            position: relative;
+            padding: 32px 24px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-logo {
+            height: 52px;
+            width: auto;
+        }
+
+        .header-github {
+            position: absolute;
+            top: 28px;
+            right: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            color: inherit;
+            opacity: 0.75;
+            transition: opacity 0.15s ease;
+        }
+
+        .header-github:hover,
+        .header-github:focus-visible {
+            opacity: 1;
+        }
+
+        .header-github svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .tagline {
+            text-align: center;
+            margin: 0 0 40px;
+            opacity: 0.75;
+            padding: 0 24px;
+        }
+
+        main {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            margin: 48px 0;
+        }
+
+        section h2 {
+            font-size: 1.15rem;
+            border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+
+        section p.desc {
+            opacity: 0.75;
+            margin: 0 0 20px;
+            font-size: 0.92rem;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .controls button,
+        .controls select {
+            font: inherit;
+            padding: 6px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(127, 127, 127, 0.3);
+            background: transparent;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .controls button.active {
+            background: #2563eb;
+            color: #fff;
+            border-color: #2563eb;
+        }
+
+        pre {
+            background: rgba(127, 127, 127, 0.1);
+            border-radius: 8px;
+            padding: 12px 16px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+        }
+
+        #log {
+            background: rgba(127, 127, 127, 0.1);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 0.8rem;
+            max-height: 160px;
+            overflow-y: auto;
+            font-family: ui-monospace, monospace;
+        }
+
+        @media (max-width: 768px) {
+            .header-logo {
+                height: 38px;
+            }
+
+            .header-github {
+                position: static;
+                margin-top: 12px;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<header>
-  <img src="../assets/img/logo.svg" class="header-logo" alt="Neiki's Table">
-  <a class="header-github" href="https://github.com/neikiri/neiki-table" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.27-.01-1.15-.02-2.09-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-  </a>
-</header>
+    <header>
+        <img src="../assets/img/logo.svg" class="header-logo" alt="Neiki's Table">
+        <a class="header-github" href="https://github.com/neikiri/neiki-table" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.27-.01-1.15-.02-2.09-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z" />
+            </svg>
+        </a>
+    </header>
 
-<p class="tagline">A lightweight, CDN-ready data table Web Component — sorting, search, filters, pagination, inline editing, row selection, CSV/JSON export and i18n, no framework required.</p>
+    <p class="tagline">A lightweight, CDN-ready data table Web Component — sorting, search, filters, pagination, inline editing, row selection, CSV/JSON export and i18n, no framework required.</p>
 
-<main>
+    <main>
 
-  <section>
-    <h2>Basic usage</h2>
-    <p class="desc">Columns and data are provided through the JavaScript API. Every feature (search, filters, sorting, pagination, editing, selection, export) is enabled by default.</p>
-    <neiki-table id="basic-table"></neiki-table>
-    <pre>const table = document.querySelector('#basic-table');
+        <section>
+            <h2>Basic usage</h2>
+            <p class="desc">Columns and data are provided through the JavaScript API. Every feature (search, filters, sorting, pagination, editing, selection, export) is enabled by default.</p>
+            <neiki-table id="basic-table"></neiki-table>
+            <pre>const table = document.querySelector('#basic-table');
 
 table.setColumns([
   { key: 'name', label: 'Name', type: 'text' },
@@ -153,82 +195,82 @@ table.setData([
   { id: 2, name: 'James Smith', email: 'james@example.com', role: 'Editor', active: true, joined: '2023-06-01' },
   ...
 ]);</pre>
-  </section>
+        </section>
 
-  <section>
-    <h2>Language (i18n)</h2>
-    <p class="desc">Built-in translations: English, Czech, German, Spanish, French, Italian, Polish, Slovak. Switch locale live with <code>setLocale()</code>, or add your own with <code>addTranslations()</code>.</p>
-    <div class="controls" id="locale-controls">
-      <button data-locale="en" class="active">en</button>
-      <button data-locale="cs">cs</button>
-      <button data-locale="de">de</button>
-      <button data-locale="es">es</button>
-      <button data-locale="fr">fr</button>
-      <button data-locale="it">it</button>
-      <button data-locale="pl">pl</button>
-      <button data-locale="sk">sk</button>
-    </div>
-    <neiki-table id="locale-table" locale="en"></neiki-table>
-  </section>
+        <section>
+            <h2>Language (i18n)</h2>
+            <p class="desc">Built-in translations: English, Czech, German, Spanish, French, Italian, Polish, Slovak. Switch locale live with <code>setLocale()</code>, or add your own with <code>addTranslations()</code>.</p>
+            <div class="controls" id="locale-controls">
+                <button data-locale="en" class="active">en</button>
+                <button data-locale="cs">cs</button>
+                <button data-locale="de">de</button>
+                <button data-locale="es">es</button>
+                <button data-locale="fr">fr</button>
+                <button data-locale="it">it</button>
+                <button data-locale="pl">pl</button>
+                <button data-locale="sk">sk</button>
+            </div>
+            <neiki-table id="locale-table" locale="en"></neiki-table>
+        </section>
 
-  <section>
-    <h2>Dark / light theme</h2>
-    <p class="desc"><code>theme="auto"</code> (the default) follows the OS preference. It can also be forced to <code>light</code> or <code>dark</code>.</p>
-    <div class="controls" id="theme-controls">
-      <button data-theme="auto" class="active">auto</button>
-      <button data-theme="light">light</button>
-      <button data-theme="dark">dark</button>
-    </div>
-    <neiki-table id="theme-table" theme="auto"></neiki-table>
-  </section>
+        <section>
+            <h2>Dark / light theme</h2>
+            <p class="desc"><code>theme="auto"</code> (the default) follows the OS preference. It can also be forced to <code>light</code> or <code>dark</code>.</p>
+            <div class="controls" id="theme-controls">
+                <button data-theme="auto" class="active">auto</button>
+                <button data-theme="light">light</button>
+                <button data-theme="dark">dark</button>
+            </div>
+            <neiki-table id="theme-table" theme="auto"></neiki-table>
+        </section>
 
-  <section>
-    <h2>Density, resizing &amp; loading</h2>
-    <p class="desc">Switch row <b>density</b>, drag the edge of any column header to <b>resize</b> it, and toggle a <b>loading</b> overlay. The <code>Salary</code> column uses a custom <code>format()</code> function and right alignment.</p>
-    <div class="controls" id="display-controls">
-      <button data-density="compact">compact</button>
-      <button data-density="normal" class="active">normal</button>
-      <button data-density="spacious">spacious</button>
-      <button id="toggle-loading" style="margin-left:auto">Toggle loading</button>
-    </div>
-    <neiki-table id="display-table" resizable></neiki-table>
-  </section>
+        <section>
+            <h2>Density, resizing &amp; loading</h2>
+            <p class="desc">Switch row <b>density</b>, drag the edge of any column header to <b>resize</b> it, and toggle a <b>loading</b> overlay. The <code>Salary</code> column uses a custom <code>format()</code> function and right alignment.</p>
+            <div class="controls" id="display-controls">
+                <button data-density="compact">compact</button>
+                <button data-density="normal" class="active">normal</button>
+                <button data-density="spacious">spacious</button>
+                <button id="toggle-loading" style="margin-left:auto">Toggle loading</button>
+            </div>
+            <neiki-table id="display-table" resizable></neiki-table>
+        </section>
 
-  <section>
-    <h2>Sorting, search &amp; filters</h2>
-    <p class="desc">Click a column header to sort. Type in the search box to match across all columns (debounced), or use the per-column filter row for a text, select, or yes/no filter.</p>
-    <neiki-table id="filter-table"></neiki-table>
-  </section>
+        <section>
+            <h2>Sorting, search &amp; filters</h2>
+            <p class="desc">Click a column header to sort. Type in the search box to match across all columns (debounced), or use the per-column filter row for a text, select, or yes/no filter.</p>
+            <neiki-table id="filter-table"></neiki-table>
+        </section>
 
-  <section>
-    <h2>Pagination</h2>
-    <p class="desc">A larger dataset (60 rows) with adjustable rows-per-page and prev/next navigation.</p>
-    <neiki-table id="pagination-table" page-size="10"></neiki-table>
-  </section>
+        <section>
+            <h2>Pagination</h2>
+            <p class="desc">A larger dataset (60 rows) with adjustable rows-per-page and prev/next navigation.</p>
+            <neiki-table id="pagination-table" page-size="10"></neiki-table>
+        </section>
 
-  <section>
-    <h2>Inline editing</h2>
-    <p class="desc">Double-click (or press Enter on a focused cell) to edit text, number, date, and select cells. Boolean cells toggle on a single click. Press Enter to save, Escape to cancel, or click away to commit.</p>
-    <neiki-table id="edit-table"></neiki-table>
-  </section>
+        <section>
+            <h2>Inline editing</h2>
+            <p class="desc">Double-click (or press Enter on a focused cell) to edit text, number, date, and select cells. Boolean cells toggle on a single click. Press Enter to save, Escape to cancel, or click away to commit.</p>
+            <neiki-table id="edit-table"></neiki-table>
+        </section>
 
-  <section>
-    <h2>Row selection &amp; export</h2>
-    <p class="desc">Select rows with the checkbox column, then use the toolbar's CSV/JSON export buttons — exporting only your selection when one exists, otherwise the full (filtered) view.</p>
-    <neiki-table id="export-table"></neiki-table>
-  </section>
+        <section>
+            <h2>Row selection &amp; export</h2>
+            <p class="desc">Select rows with the checkbox column, then use the toolbar's CSV/JSON export buttons — exporting only your selection when one exists, otherwise the full (filtered) view.</p>
+            <neiki-table id="export-table"></neiki-table>
+        </section>
 
-  <section>
-    <h2>Events</h2>
-    <p class="desc">Every interaction dispatches a <code>neiki-table:*</code> custom event with details in <code>event.detail</code>.</p>
-    <neiki-table id="events-table"></neiki-table>
-    <h3>Event log</h3>
-    <div id="log"></div>
-  </section>
+        <section>
+            <h2>Events</h2>
+            <p class="desc">Every interaction dispatches a <code>neiki-table:*</code> custom event with details in <code>event.detail</code>.</p>
+            <neiki-table id="events-table"></neiki-table>
+            <h3>Event log</h3>
+            <div id="log"></div>
+        </section>
 
-  <section>
-    <h2>CDN-style usage</h2>
-    <pre>&lt;script src="https://cdn.neikiri.dev/neiki-table/neiki-table.min.js"&gt;&lt;/script&gt;
+        <section>
+            <h2>CDN-style usage</h2>
+            <pre>&lt;script src="https://cdn.neikiri.dev/neiki-table/neiki-table.min.js"&gt;&lt;/script&gt;
 
 &lt;neiki-table id="my-table"&gt;&lt;/neiki-table&gt;
 
@@ -237,102 +279,141 @@ table.setData([
   table.setColumns([{ key: 'name', label: 'Name' }]);
   table.setData([{ id: 1, name: 'Example' }]);
 &lt;/script&gt;</pre>
-  </section>
+        </section>
 
-</main>
+    </main>
 
-<script>
-  var SAMPLE_COLUMNS = [
-    { key: 'name', label: 'Name', type: 'text' },
-    { key: 'email', label: 'Email', type: 'text' },
-    { key: 'role', label: 'Role', type: 'select', options: ['Admin', 'Editor', 'Viewer'] },
-    { key: 'salary', label: 'Salary', type: 'number', align: 'right',
-      format: function (v) { return v == null ? '' : '$' + Number(v).toLocaleString('en-US'); } },
-    { key: 'active', label: 'Active', type: 'boolean' },
-    { key: 'joined', label: 'Joined', type: 'date' }
-  ];
+    <script>
+        var SAMPLE_COLUMNS = [{
+                key: 'name',
+                label: 'Name',
+                type: 'text'
+            },
+            {
+                key: 'email',
+                label: 'Email',
+                type: 'text'
+            },
+            {
+                key: 'role',
+                label: 'Role',
+                type: 'select',
+                options: ['Admin', 'Editor', 'Viewer']
+            },
+            {
+                key: 'salary',
+                label: 'Salary',
+                type: 'number',
+                align: 'right',
+                format: function(v) {
+                    return v == null ? '' : '$' + Number(v).toLocaleString('en-US');
+                }
+            },
+            {
+                key: 'active',
+                label: 'Active',
+                type: 'boolean'
+            },
+            {
+                key: 'joined',
+                label: 'Joined',
+                type: 'date'
+            }
+        ];
 
-  var FIRST_NAMES = ['Alice', 'James', 'Emma', 'Michael', 'Olivia', 'Daniel', 'Sophia', 'Ethan', 'Grace', 'David', 'Chloe', 'Henry', 'Zoe', 'Benjamin', 'Lily'];
-  var LAST_NAMES = ['Johnson', 'Smith', 'Williams', 'Brown', 'Clark', 'Walker', 'Turner', 'Harris', 'Mitchell', 'Bennett'];
-  var ROLES = ['Admin', 'Editor', 'Viewer'];
+        var FIRST_NAMES = ['Alice', 'James', 'Emma', 'Michael', 'Olivia', 'Daniel', 'Sophia', 'Ethan', 'Grace', 'David', 'Chloe', 'Henry', 'Zoe', 'Benjamin', 'Lily'];
+        var LAST_NAMES = ['Johnson', 'Smith', 'Williams', 'Brown', 'Clark', 'Walker', 'Turner', 'Harris', 'Mitchell', 'Bennett'];
+        var ROLES = ['Admin', 'Editor', 'Viewer'];
 
-  function makeSampleData(count) {
-    var rows = [];
-    for (var i = 1; i <= count; i++) {
-      var first = FIRST_NAMES[i % FIRST_NAMES.length];
-      var last = LAST_NAMES[i % LAST_NAMES.length];
-      var day = String(1 + (i % 27)).padStart(2, '0');
-      var month = String(1 + (i % 12)).padStart(2, '0');
-      rows.push({
-        id: i,
-        name: first + ' ' + last,
-        email: (first + '.' + last).toLowerCase().replace(/[^a-z.]/g, '') + '@example.com',
-        role: ROLES[i % ROLES.length],
-        salary: 42000 + (i * 1234) % 58000,
-        active: i % 3 !== 0,
-        joined: '202' + (2 + (i % 3)) + '-' + month + '-' + day
-      });
-    }
-    return rows;
-  }
+        function makeSampleData(count) {
+            var rows = [];
+            for (var i = 1; i <= count; i++) {
+                var first = FIRST_NAMES[i % FIRST_NAMES.length];
+                var last = LAST_NAMES[i % LAST_NAMES.length];
+                var day = String(1 + (i % 27)).padStart(2, '0');
+                var month = String(1 + (i % 12)).padStart(2, '0');
+                rows.push({
+                    id: i,
+                    name: first + ' ' + last,
+                    email: (first + '.' + last).toLowerCase().replace(/[^a-z.]/g, '') + '@example.com',
+                    role: ROLES[i % ROLES.length],
+                    salary: 42000 + (i * 1234) % 58000,
+                    active: i % 3 !== 0,
+                    joined: '202' + (2 + (i % 3)) + '-' + month + '-' + day
+                });
+            }
+            return rows;
+        }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('#basic-table').setColumns(SAMPLE_COLUMNS).setData(makeSampleData(8));
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('#basic-table').setColumns(SAMPLE_COLUMNS).setData(makeSampleData(8));
 
-    var localeTable = document.querySelector('#locale-table');
-    localeTable.setColumns(SAMPLE_COLUMNS).setData(makeSampleData(6));
-    document.querySelectorAll('#locale-controls button').forEach(function (button) {
-      button.addEventListener('click', function () {
-        document.querySelectorAll('#locale-controls button').forEach(function (b) { b.classList.remove('active'); });
-        button.classList.add('active');
-        localeTable.setLocale(button.dataset.locale);
-      });
-    });
+            var localeTable = document.querySelector('#locale-table');
+            localeTable.setColumns(SAMPLE_COLUMNS).setData(makeSampleData(6));
+            document.querySelectorAll('#locale-controls button').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('#locale-controls button').forEach(function(b) {
+                        b.classList.remove('active');
+                    });
+                    button.classList.add('active');
+                    localeTable.setLocale(button.dataset.locale);
+                });
+            });
 
-    var themeTable = document.querySelector('#theme-table');
-    themeTable.setColumns(SAMPLE_COLUMNS).setData(makeSampleData(6));
-    document.querySelectorAll('#theme-controls button').forEach(function (button) {
-      button.addEventListener('click', function () {
-        document.querySelectorAll('#theme-controls button').forEach(function (b) { b.classList.remove('active'); });
-        button.classList.add('active');
-        themeTable.setConfig({ theme: button.dataset.theme });
-      });
-    });
+            var themeTable = document.querySelector('#theme-table');
+            themeTable.setColumns(SAMPLE_COLUMNS).setData(makeSampleData(6));
+            document.querySelectorAll('#theme-controls button').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('#theme-controls button').forEach(function(b) {
+                        b.classList.remove('active');
+                    });
+                    button.classList.add('active');
+                    themeTable.setConfig({
+                        theme: button.dataset.theme
+                    });
+                });
+            });
 
-    var displayTable = document.querySelector('#display-table');
-    displayTable.setColumns(SAMPLE_COLUMNS).setData(makeSampleData(24));
-    document.querySelectorAll('#display-controls button[data-density]').forEach(function (button) {
-      button.addEventListener('click', function () {
-        document.querySelectorAll('#display-controls button[data-density]').forEach(function (b) { b.classList.remove('active'); });
-        button.classList.add('active');
-        displayTable.setDensity(button.dataset.density);
-      });
-    });
-    document.querySelector('#toggle-loading').addEventListener('click', function () {
-      displayTable.setLoading(!displayTable.getConfig().loading);
-      setTimeout(function () { displayTable.setLoading(false); }, 1200);
-    });
+            var displayTable = document.querySelector('#display-table');
+            displayTable.setColumns(SAMPLE_COLUMNS).setData(makeSampleData(24));
+            document.querySelectorAll('#display-controls button[data-density]').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('#display-controls button[data-density]').forEach(function(b) {
+                        b.classList.remove('active');
+                    });
+                    button.classList.add('active');
+                    displayTable.setDensity(button.dataset.density);
+                });
+            });
+            document.querySelector('#toggle-loading').addEventListener('click', function() {
+                displayTable.setLoading(!displayTable.getConfig().loading);
+                setTimeout(function() {
+                    displayTable.setLoading(false);
+                }, 1200);
+            });
 
-    document.querySelector('#filter-table').setColumns(SAMPLE_COLUMNS).setData(makeSampleData(20));
-    document.querySelector('#pagination-table').setColumns(SAMPLE_COLUMNS).setData(makeSampleData(60));
-    document.querySelector('#edit-table').setColumns(SAMPLE_COLUMNS).setData(makeSampleData(8));
-    document.querySelector('#export-table').setColumns(SAMPLE_COLUMNS).setData(makeSampleData(15));
+            document.querySelector('#filter-table').setColumns(SAMPLE_COLUMNS).setData(makeSampleData(20));
+            document.querySelector('#pagination-table').setColumns(SAMPLE_COLUMNS).setData(makeSampleData(60));
+            document.querySelector('#edit-table').setColumns(SAMPLE_COLUMNS).setData(makeSampleData(8));
+            document.querySelector('#export-table').setColumns(SAMPLE_COLUMNS).setData(makeSampleData(15));
 
-    var eventsTable = document.querySelector('#events-table');
-    eventsTable.setColumns(SAMPLE_COLUMNS).setData(makeSampleData(6));
-    var log = document.querySelector('#log');
-    function logLine(text) {
-      var line = document.createElement('div');
-      line.textContent = '[' + new Date().toLocaleTimeString() + '] ' + text;
-      log.prepend(line);
-    }
-    ['ready', 'sort', 'search', 'filter', 'page-change', 'select', 'cell-edit', 'export', 'copy', 'row-click', 'column-resize', 'error'].forEach(function (name) {
-      eventsTable.addEventListener('neiki-table:' + name, function (event) {
-        logLine(name + ' — ' + JSON.stringify(event.detail || {}));
-      });
-    });
-  });
-</script>
+            var eventsTable = document.querySelector('#events-table');
+            eventsTable.setColumns(SAMPLE_COLUMNS).setData(makeSampleData(6));
+            var log = document.querySelector('#log');
+
+            function logLine(text) {
+                var line = document.createElement('div');
+                line.textContent = '[' + new Date().toLocaleTimeString() + '] ' + text;
+                log.prepend(line);
+            }
+            ['ready', 'sort', 'search', 'filter', 'page-change', 'select', 'cell-edit', 'export', 'copy', 'row-click', 'column-resize', 'error'].forEach(function(name) {
+                eventsTable.addEventListener('neiki-table:' + name, function(event) {
+                    logLine(name + ' — ' + JSON.stringify(event.detail || {}));
+                });
+            });
+        });
+    </script>
 
 </body>
+
 </html>
